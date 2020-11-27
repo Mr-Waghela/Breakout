@@ -15,8 +15,15 @@
   <canvas id="myCanvas" width="540" height="320"></canvas>
   
 <script>  
+
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
+var touchDevice = ('ontouchstart' in document.documentElement);
+
+if(touchDevice == true){
+  canvas.style.display = 'none';
+  document.body.innerHTML = "<h1>Game does not support touch screen devices please Enjoy it on Non touchscreen devices</h1>"
+}
 
 var x = canvas.width/2;
 var y = canvas.height-30;
@@ -142,8 +149,6 @@ function draw() {
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 document.addEventListener("mousemove", mouseMoveHandler, false);
-document.addEventListener('touchstart', mouseMoveHandler, false);        
-document.addEventListener('touchmove', mouseMoveHandler, false);
 
 function mouseMoveHandler(e) {
   var relativeX = e.clientX - canvas.offsetLeft;
