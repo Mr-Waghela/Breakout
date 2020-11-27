@@ -7,6 +7,7 @@
   <style>
       * { padding: 0; margin: 0; }
       body{min-height: 100%;background-color: #000;}
+      h1{color: #fff;font-size: 16px;padding: 20px;}
     	canvas { background: #000; display: block; margin: 0 auto;}
   </style>
 </head>
@@ -20,7 +21,10 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 var touchDevice = ('ontouchstart' in document.documentElement);
 
-if(touchDevice == true){
+if(touchDevice !== true){
+  draw();
+}
+else{
   canvas.style.display = 'none';
   document.body.innerHTML = "<h1>Game does not support touch screen devices please Enjoy it on Non touchscreen devices</h1>"
 }
@@ -206,8 +210,6 @@ function drawLives() {
   ctx.fillText("Lives: "+lives, canvas.width-55, 20);
 }
 
-
-draw();
 </script>
 </body>
 </html>
